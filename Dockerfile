@@ -1,4 +1,4 @@
-FROM scratch
+FROM busybox
 
 CMD ["sleep", "10"]
 HEALTHCHECK CMD exit 0
