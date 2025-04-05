@@ -1,3 +1,5 @@
-echo "Delaying Health for ${DELAY_SLEEP_SEC} seconds"
-sleep ${DELAY_SLEEP_SEC:-0} # Defaults to 0 if not set
+sleep_time=${STARTUP_DELAY}
+# Sleep for the specified duration
+echo "Sleeping for ${sleep_time} seconds..."
+sleep ${sleep_time}
 exit 0

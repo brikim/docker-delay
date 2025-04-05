@@ -1,6 +1,6 @@
 FROM busybox
 
-ENV DELAY_SLEEP_SEC=10
+ENV STARTUP_DELAY=0
 
 COPY healthCheck.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/healthCheck.sh
