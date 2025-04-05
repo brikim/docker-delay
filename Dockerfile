@@ -2,7 +2,7 @@ FROM busybox
 
 ENV DELAY_SLEEP_SEC=10
 
-RUN echo "Delaying ${DELAY_SLEEP_SEC} seconds"
-CMD ["sleep", "$DELAY_SLEEP_SEC"]
-HEALTHCHECK CMD exit 0
+COPY healthCheck.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/healthCheck.sh
+HEALTHCHECK CMD /usr/local/bin/healthCheck.sh
 CMD ["sleep", "infinity"]
