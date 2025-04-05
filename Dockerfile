@@ -2,7 +2,8 @@ FROM busybox
 
 ENV STARTUP_DELAY=0
 
-COPY healthCheck.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/healthCheck.sh
-HEALTHCHECK CMD /usr/local/bin/healthCheck.sh
+COPY healthCheck.sh /
+RUN chmod +x /healthCheck.sh
+ENTRYPOINT ["/healthCheck.sh"]
+HEALTHCHECK CMD exit 0
 CMD ["sleep", "infinity"]
