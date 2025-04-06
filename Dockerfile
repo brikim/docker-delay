@@ -1,8 +1,10 @@
 FROM busybox
 
-ENV STARTUP_DELAY=5s
+ENV DELAY_MONITOR_FOLDER=""
 
-HEALTHCHECK --timeout=30s --start-period=$STARTUP_DELAY --retries=3 \
-  CMD curl -f http://localhost/ || exit 1
+COPY healthCheck.sh /
+RUN chmod +x /healthCheck.sh
+
+HEALTHCHECK CMD /healthCheck.sh
 
 CMD ["sleep", "infinity"]

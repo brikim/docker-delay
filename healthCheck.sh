@@ -1,5 +1,7 @@
-sleep_time=${STARTUP_DELAY}
-# Sleep for the specified duration
-echo "Sleeping for ${sleep_time} seconds..."
-sleep ${sleep_time}
+delay_monitor_folder=${DELAY_MONITOR_FOLDER}
+
+while [![ -d $delay_monitor_folder ]]; do
+    sleep 1
+done
+
 exit 0
